@@ -60,6 +60,10 @@
               "target": "Package",
               "version": "[8.0.21, )"
             },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[8.0.8, )"
+            },
             "Microsoft.NET.ILLink.Tasks": {
               "suppressParent": "All",
               "target": "Package",
@@ -71,6 +75,14 @@
               "target": "Package",
               "version": "[9.0.10, )",
               "autoReferenced": true
+            },
+            "SQLitePCLRaw.bundle_e_sqlite3": {
+              "target": "Package",
+              "version": "[2.1.6, )"
+            },
+            "SqliteWasmHelper": {
+              "target": "Package",
+              "version": "[1.2.0-beta-gf8e1db1f31, )"
             }
           },
           "imports": [
