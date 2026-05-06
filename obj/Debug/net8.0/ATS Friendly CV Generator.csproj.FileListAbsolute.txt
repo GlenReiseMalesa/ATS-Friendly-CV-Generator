@@ -1093,9 +1093,6 @@ C:\Users\males\Desktop\ATS Friendly CV Generator\ATS-Friendly-CV-Generator\obj\D
 C:\Users\males\Desktop\ATS Friendly CV Generator\ATS-Friendly-CV-Generator\obj\Debug\net8.0\compressed\8owr9k51mt-oyz0vx2fzb.gz
 C:\Users\males\Desktop\ATS Friendly CV Generator\ATS-Friendly-CV-Generator\obj\Debug\net8.0\compressed\jv95bslixv-x516a5067s.gz
 C:\Users\males\Desktop\ATS Friendly CV Generator\ATS-Friendly-CV-Generator\obj\Debug\net8.0\compressed\w2z1k77sil-f58q63cagq.gz
-C:\Users\males\Desktop\ATS Friendly CV Generator\ATS-Friendly-CV-Generator\obj\Debug\net8.0\compressed\ohiitqj19d-izq6aak2x6.gz
-C:\Users\males\Desktop\ATS Friendly CV Generator\ATS-Friendly-CV-Generator\obj\Debug\net8.0\compressed\eda9hw19ne-8drt85ctdi.gz
-C:\Users\males\Desktop\ATS Friendly CV Generator\ATS-Friendly-CV-Generator\obj\Debug\net8.0\compressed\joxlu964e2-s5emstwvif.gz
 C:\Users\males\Desktop\ATS Friendly CV Generator\ATS-Friendly-CV-Generator\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\males\Desktop\ATS Friendly CV Generator\ATS-Friendly-CV-Generator\obj\Debug\net8.0\staticwebassets.build.json.cache
 C:\Users\males\Desktop\ATS Friendly CV Generator\ATS-Friendly-CV-Generator\obj\Debug\net8.0\staticwebassets.development.json
@@ -1106,3 +1103,6 @@ C:\Users\males\Desktop\ATS Friendly CV Generator\ATS-Friendly-CV-Generator\obj\D
 C:\Users\males\Desktop\ATS Friendly CV Generator\ATS-Friendly-CV-Generator\obj\Debug\net8.0\refint\ATS Friendly CV Generator.dll
 C:\Users\males\Desktop\ATS Friendly CV Generator\ATS-Friendly-CV-Generator\obj\Debug\net8.0\ATS Friendly CV Generator.pdb
 C:\Users\males\Desktop\ATS Friendly CV Generator\ATS-Friendly-CV-Generator\obj\Debug\net8.0\ref\ATS Friendly CV Generator.dll
+C:\Users\males\Desktop\ATS Friendly CV Generator\ATS-Friendly-CV-Generator\obj\Debug\net8.0\compressed\ohiitqj19d-nh45sxladb.gz
+C:\Users\males\Desktop\ATS Friendly CV Generator\ATS-Friendly-CV-Generator\obj\Debug\net8.0\compressed\eda9hw19ne-ka1x0yzpcb.gz
+C:\Users\males\Desktop\ATS Friendly CV Generator\ATS-Friendly-CV-Generator\obj\Debug\net8.0\compressed\joxlu964e2-fi3pco9cky.gz
