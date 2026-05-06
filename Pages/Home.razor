@@ -2,6 +2,164 @@
 
 <PageTitle>Home</PageTitle>
 
-<h1>Hello, world!</h1>
 
-Welcome to your new app.
+
+
+<div class="app">
+
+    <!-- ══════ LEFT: EDITOR ══════ -->
+    <aside class="editor">
+        <div class="section-tab">
+            <button class="tab-btn active" onclick="switchTab('info')">Info</button>
+            <button class="tab-btn" onclick="switchTab('experience')">Experience</button>
+            <button class="tab-btn" onclick="switchTab('education')">Education</button>
+            <button class="tab-btn" onclick="switchTab('skills')">Skills</button>
+            <button class="tab-btn" onclick="switchTab('style')">Style</button>
+        </div>
+
+        <!-- PERSONAL INFO -->
+        <div id="tab-info" class="section-panel active">
+            <div class="field-group">
+                <label>Full name</label>
+                <input type="text" id="inp-name" placeholder="Alexandra Chen" oninput="update()">
+            </div>
+            <div class="field-group">
+                <label>Job title</label>
+                <input type="text" id="inp-title" placeholder="Senior Product Designer" oninput="update()">
+            </div>
+            <div class="field-group">
+                <label>Professional summary</label>
+                <textarea id="inp-summary" placeholder="A brief statement about your professional background, key strengths, and career goals..." oninput="update()"></textarea>
+            </div>
+            <div class="two-col">
+                <div class="field-group">
+                    <label>Email</label>
+                    <input type="email" id="inp-email" placeholder="alex@email.com" oninput="update()">
+                </div>
+                <div class="field-group">
+                    <label>Phone</label>
+                    <input type="tel" id="inp-phone" placeholder="+1 555 000 0000" oninput="update()">
+                </div>
+            </div>
+            <div class="two-col">
+                <div class="field-group">
+                    <label>Location</label>
+                    <input type="text" id="inp-location" placeholder="San Francisco, CA" oninput="update()">
+                </div>
+                <div class="field-group">
+                    <label>Website / LinkedIn</label>
+                    <input type="url" id="inp-website" placeholder="linkedin.com/in/alex" oninput="update()">
+                </div>
+            </div>
+        </div>
+
+        <!-- EXPERIENCE -->
+        <div id="tab-experience" class="section-panel">
+            <div id="exp-list"></div>
+            <button class="add-btn" onclick="addEntry('exp')">+ Add experience</button>
+        </div>
+
+        <!-- EDUCATION -->
+        <div id="tab-education" class="section-panel">
+            <div id="edu-list"></div>
+            <button class="add-btn" onclick="addEntry('edu')">+ Add education</button>
+        </div>
+
+        <!-- SKILLS -->
+        <div id="tab-skills" class="section-panel">
+            <div class="field-group">
+                <label>Add skill</label>
+                <div class="skill-input-row">
+                    <input type="text" id="skill-input" placeholder="e.g. Figma, Python, Project management" onkeydown="if(event.key==='Enter') addSkill()">
+                    <button class="add-skill-btn" onclick="addSkill()">Add</button>
+                </div>
+            </div>
+            <div class="skill-tags" id="skill-tags"></div>
+        </div>
+
+        <!-- STYLE -->
+        <div id="tab-style" class="section-panel">
+            <div class="field-group">
+                <label>Accent color</label>
+                <div class="color-row" id="color-swatches">
+                    <div class="color-swatch selected" style="background:#1a1a1a" data-color="#1a1a1a" onclick="setAccent(this)"></div>
+                    <div class="color-swatch" style="background:#2c3e7a" data-color="#2c3e7a" onclick="setAccent(this)"></div>
+                    <div class="color-swatch" style="background:#1d6b4b" data-color="#1d6b4b" onclick="setAccent(this)"></div>
+                    <div class="color-swatch" style="background:#8b2252" data-color="#8b2252" onclick="setAccent(this)"></div>
+                    <div class="color-swatch" style="background:#c0392b" data-color="#c0392b" onclick="setAccent(this)"></div>
+                    <div class="color-swatch" style="background:#b56c00" data-color="#b56c00" onclick="setAccent(this)"></div>
+                    <div class="color-swatch" style="background:#5a5a5a" data-color="#5a5a5a" onclick="setAccent(this)"></div>
+                </div>
+            </div>
+            <div class="field-group" style="margin-top:1.25rem">
+                <label>Font style</label>
+                <select id="font-select" onchange="setFont()">
+                    <option value="'DM Serif Display', serif">DM Serif (elegant)</option>
+                    <option value="'Playfair Display', serif">Playfair (classic)</option>
+                    <option value="'DM Sans', sans-serif">DM Sans (modern)</option>
+                </select>
+            </div>
+        </div>
+    </aside>
+
+    <!-- ══════ RIGHT: PREVIEW ══════ -->
+    <div class="preview-wrapper">
+        <div class="cv-page" id="cv-page">
+
+            <div class="cv-header" id="cv-header">
+                <div class="cv-accent-bar" id="cv-accent-bar"></div>
+                <div id="cv-name" class="cv-name" style="margin-left:1.25rem">
+                    <span class="cv-placeholder">Your Name</span>
+                </div>
+                <div id="cv-job-title" class="cv-title" style="margin-left:1.25rem">
+                    <span class="cv-placeholder">Your Title</span>
+                </div>
+            </div>
+
+            <div class="cv-contact-bar" id="cv-contact-bar"></div>
+
+            <div class="cv-body">
+                <aside class="cv-sidebar">
+
+                    <div class="cv-section" id="cv-skills-section">
+                        <div class="cv-section-title" id="cv-skills-title">Skills</div>
+                        <div id="cv-skills-output">
+                            <span class="cv-placeholder">Add skills to see them here</span>
+                        </div>
+                    </div>
+
+                    <div class="cv-section" id="cv-edu-section">
+                        <div class="cv-section-title" id="cv-edu-title">Education</div>
+                        <div id="cv-edu-output">
+                            <span class="cv-placeholder">Add education entries</span>
+                        </div>
+                    </div>
+
+                </aside>
+
+                <main class="cv-main">
+
+                    <div class="cv-section" id="cv-summary-section">
+                        <div class="cv-section-title" id="cv-summary-title">Profile</div>
+                        <div id="cv-summary-output" class="cv-summary">
+                            <span class="cv-placeholder">Add a professional summary</span>
+                        </div>
+                    </div>
+
+                    <div class="cv-section" id="cv-exp-section">
+                        <div class="cv-section-title" id="cv-exp-title">Experience</div>
+                        <div id="cv-exp-output">
+                            <span class="cv-placeholder">Add your work experience</span>
+                        </div>
+                    </div>
+
+                </main>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<button class="print-btn" onclick="window.print()">Print / Save PDF</button>
+
