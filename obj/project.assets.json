@@ -735,30 +735,6 @@
           "lib/net6.0/SQLitePCLRaw.provider.e_sqlite3.dll": {}
         }
       },
-      "SqliteWasmHelper/1.2.0-beta-gf8e1db1f31": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.AspNetCore.Components.Web": "7.0.5",
-          "Microsoft.EntityFrameworkCore.Sqlite.Core": "7.0.5",
-          "SQLitePCLRaw.bundle_e_sqlite3": "2.1.4"
-        },
-        "compile": {
-          "lib/net7.0/SqliteWasmHelper.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net7.0/SqliteWasmHelper.dll": {
-            "related": ".xml"
-          }
-        },
-        "build": {
-          "buildTransitive/SqliteWasmHelper.props": {}
-        },
-        "buildMultiTargeting": {
-          "buildMultiTargeting/SqliteWasmHelper.props": {}
-        }
-      },
       "System.IO.Pipelines/8.0.0": {
         "type": "package",
         "compile": {
@@ -1479,30 +1455,6 @@
         },
         "runtime": {
           "lib/net6.0/SQLitePCLRaw.provider.e_sqlite3.dll": {}
-        }
-      },
-      "SqliteWasmHelper/1.2.0-beta-gf8e1db1f31": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.AspNetCore.Components.Web": "7.0.5",
-          "Microsoft.EntityFrameworkCore.Sqlite.Core": "7.0.5",
-          "SQLitePCLRaw.bundle_e_sqlite3": "2.1.4"
-        },
-        "compile": {
-          "lib/net7.0/SqliteWasmHelper.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net7.0/SqliteWasmHelper.dll": {
-            "related": ".xml"
-          }
-        },
-        "build": {
-          "buildTransitive/SqliteWasmHelper.props": {}
-        },
-        "buildMultiTargeting": {
-          "buildMultiTargeting/SqliteWasmHelper.props": {}
         }
       },
       "System.IO.Pipelines/8.0.0": {
@@ -2759,24 +2711,6 @@
         "sqlitepclraw.provider.e_sqlite3.nuspec"
       ]
     },
-    "SqliteWasmHelper/1.2.0-beta-gf8e1db1f31": {
-      "sha512": "NuRIzKE3YwEDzWL80QiXzCaJfOOVU5vhO8QHMFAe9VulSZYYNT/l7KjXXCwabxFu89G8KpMB66kdfQHTCs4t0w==",
-      "type": "package",
-      "path": "sqlitewasmhelper/1.2.0-beta-gf8e1db1f31",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "build/Microsoft.AspNetCore.StaticWebAssets.props",
-        "build/SqliteWasmHelper.props",
-        "buildMultiTargeting/SqliteWasmHelper.props",
-        "buildTransitive/SqliteWasmHelper.props",
-        "lib/net7.0/SqliteWasmHelper.dll",
-        "lib/net7.0/SqliteWasmHelper.xml",
-        "sqlitewasmhelper.1.2.0-beta-gf8e1db1f31.nupkg.sha512",
-        "sqlitewasmhelper.nuspec",
-        "staticwebassets/browserCache.js"
-      ]
-    },
     "System.IO.Pipelines/8.0.0": {
       "sha512": "FHNOatmUq0sqJOkTx+UF/9YK1f180cnW5FVqnQMvYUN0elp6wFzbtPSiqbo1/ru8ICp43JM1i7kKkk6GsNGHlA==",
       "type": "package",
@@ -2943,8 +2877,7 @@
       "Microsoft.EntityFrameworkCore.Sqlite >= 8.0.8",
       "Microsoft.NET.ILLink.Tasks >= 8.0.21",
       "Microsoft.NET.Sdk.WebAssembly.Pack >= 9.0.10",
-      "SQLitePCLRaw.bundle_e_sqlite3 >= 2.1.6",
-      "SqliteWasmHelper >= 1.2.0-beta-gf8e1db1f31"
+      "SQLitePCLRaw.bundle_e_sqlite3 >= 2.1.6"
     ]
   },
   "packageFolders": {
@@ -2954,11 +2887,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\males\\Desktop\\ATS Friendly CV Generator\\ATS Friendly CV Generator.csproj",
+      "projectUniqueName": "C:\\Users\\males\\Desktop\\ATS Friendly CV Generator\\ATS-Friendly-CV-Generator\\ATS Friendly CV Generator.csproj",
       "projectName": "ATS Friendly CV Generator",
-      "projectPath": "C:\\Users\\males\\Desktop\\ATS Friendly CV Generator\\ATS Friendly CV Generator.csproj",
+      "projectPath": "C:\\Users\\males\\Desktop\\ATS Friendly CV Generator\\ATS-Friendly-CV-Generator\\ATS Friendly CV Generator.csproj",
       "packagesPath": "C:\\Users\\males\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\males\\Desktop\\ATS Friendly CV Generator\\obj\\",
+      "outputPath": "C:\\Users\\males\\Desktop\\ATS Friendly CV Generator\\ATS-Friendly-CV-Generator\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -3026,10 +2959,6 @@
           "SQLitePCLRaw.bundle_e_sqlite3": {
             "target": "Package",
             "version": "[2.1.6, )"
-          },
-          "SqliteWasmHelper": {
-            "target": "Package",
-            "version": "[1.2.0-beta-gf8e1db1f31, )"
           }
         },
         "imports": [

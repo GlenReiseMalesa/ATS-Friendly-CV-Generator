@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\males\\Desktop\\ATS Friendly CV Generator\\ATS Friendly CV Generator.csproj": {}
+    "C:\\Users\\males\\Desktop\\ATS Friendly CV Generator\\ATS-Friendly-CV-Generator\\ATS Friendly CV Generator.csproj": {}
   },
   "projects": {
-    "C:\\Users\\males\\Desktop\\ATS Friendly CV Generator\\ATS Friendly CV Generator.csproj": {
+    "C:\\Users\\males\\Desktop\\ATS Friendly CV Generator\\ATS-Friendly-CV-Generator\\ATS Friendly CV Generator.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\males\\Desktop\\ATS Friendly CV Generator\\ATS Friendly CV Generator.csproj",
+        "projectUniqueName": "C:\\Users\\males\\Desktop\\ATS Friendly CV Generator\\ATS-Friendly-CV-Generator\\ATS Friendly CV Generator.csproj",
         "projectName": "ATS Friendly CV Generator",
-        "projectPath": "C:\\Users\\males\\Desktop\\ATS Friendly CV Generator\\ATS Friendly CV Generator.csproj",
+        "projectPath": "C:\\Users\\males\\Desktop\\ATS Friendly CV Generator\\ATS-Friendly-CV-Generator\\ATS Friendly CV Generator.csproj",
         "packagesPath": "C:\\Users\\males\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\males\\Desktop\\ATS Friendly CV Generator\\obj\\",
+        "outputPath": "C:\\Users\\males\\Desktop\\ATS Friendly CV Generator\\ATS-Friendly-CV-Generator\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -79,10 +79,6 @@
             "SQLitePCLRaw.bundle_e_sqlite3": {
               "target": "Package",
               "version": "[2.1.6, )"
-            },
-            "SqliteWasmHelper": {
-              "target": "Package",
-              "version": "[1.2.0-beta-gf8e1db1f31, )"
             }
           },
           "imports": [
