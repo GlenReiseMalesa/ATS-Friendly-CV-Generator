@@ -14,8 +14,38 @@
             <button class="tab-btn @(activeTab == 2 ? "active" : "")" @onclick="() => activeTab = 2">Experience</button>
             <button class="tab-btn @(activeTab == 3 ? "active" : "")" @onclick="() => activeTab = 3">Education</button>
             <button class="tab-btn @(activeTab == 4 ? "active" : "")" @onclick="() => activeTab = 4">Skills</button>
-            <button class="tab-btn @(activeTab == 5 ? "active" : "")" @onclick="() => activeTab = 5">Style</button>
         </div>
+
+
+
+        @if (showEducationPopup == true)
+        {
+            <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); display: flex; justify-content: center; align-items: center; z-index: 1000;">
+                <div style="background: white; padding: 30px; border-radius: 12px; min-width: 300px;">
+                    <h4>Add Education</h4>
+                    <label>DEGREE</label>
+                    <input type="text" style="width: 100%; padding: 8px; margin: 10px 0;" />
+                    <label>INSTITUTION</label>
+                    <input type="text" @bind="inputValue" style="width: 100%; padding: 8px; margin: 10px 0;" />
+                    <label>DATE RANGE</label>
+                    <input type="text"  style="width: 100%; padding: 8px; margin: 10px 0;" />
+                    <label>SUMMARY</label>
+                    <textarea type="text" style="width: 100%; padding: 8px; margin: 10px 0;" />
+                    <div style="display: flex; gap: 10px; margin-top: 15px;">
+
+                        <button @onclick="CloseEducationPopup" style="padding: 6px 12px;">Cancel</button>
+                        <button @onclick="CloseEducationPopup" style="padding: 6px 12px;">Submit</button>
+                        
+                    </div>
+                </div>
+            </div>
+
+        }
+
+
+
+
+
 
 
 
@@ -24,17 +54,26 @@
             <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); display: flex; justify-content: center; align-items: center; z-index: 1000;">
                 <div style="background: white; padding: 30px; border-radius: 12px; min-width: 300px;">
                     <h4>Add Experience</h4>
-                    <label>Company</label>
+                    <label>JOB TITLE</label>
+                    <input type="text" style="width: 100%; padding: 8px; margin: 10px 0;" />
+                    <label>COMPANY</label>
                     <input type="text" @bind="inputValue" style="width: 100%; padding: 8px; margin: 10px 0;" />
+                    <label>DATE RANGE</label>
+                    <input type="text"  style="width: 100%; padding: 8px; margin: 10px 0;" />
+                    <label>DESCRIPTION</label>
+                    <textarea type="text" style="width: 100%; padding: 8px; margin: 10px 0;" />
                     <div style="display: flex; gap: 10px; margin-top: 15px;">
 
                         <button @onclick="CloseExperiencePopup" style="padding: 6px 12px;">Cancel</button>
+                        <button @onclick="CloseExperiencePopup" style="padding: 6px 12px;">Submit</button>
                         
                     </div>
                 </div>
             </div>
 
         }
+
+
 
 
 
@@ -89,7 +128,7 @@
                 <!-- EDUCATION -->
                 <div id="tab-education" class="section-panel active">
                     <div id="edu-list"></div>
-                    <button class="add-btn" onclick="addEntry('edu')">+ Add education</button>
+                    <button class="add-btn" @onclick="OpenEducationPopup">+ Add education</button>
                 </div>
                 break;
             case 4:
@@ -105,31 +144,7 @@
                     <div class="skill-tags" id="skill-tags"></div>
                 </div>
                 break;
-                case 5:
-                <!-- STYLE -->
-                <div id="tab-style" class="section-panel active">
-                    <div class="field-group">
-                        <label>Accent color</label>
-                        <div class="color-row" id="color-swatches">
-                            <div class="color-swatch selected" style="background:#1a1a1a" data-color="#1a1a1a" onclick="setAccent(this)"></div>
-                            <div class="color-swatch" style="background:#2c3e7a" data-color="#2c3e7a" onclick="setAccent(this)"></div>
-                            <div class="color-swatch" style="background:#1d6b4b" data-color="#1d6b4b" onclick="setAccent(this)"></div>
-                            <div class="color-swatch" style="background:#8b2252" data-color="#8b2252" onclick="setAccent(this)"></div>
-                            <div class="color-swatch" style="background:#c0392b" data-color="#c0392b" onclick="setAccent(this)"></div>
-                            <div class="color-swatch" style="background:#b56c00" data-color="#b56c00" onclick="setAccent(this)"></div>
-                            <div class="color-swatch" style="background:#5a5a5a" data-color="#5a5a5a" onclick="setAccent(this)"></div>
-                        </div>
-                    </div>
-                    <div class="field-group" style="margin-top:1.25rem">
-                        <label>Font style</label>
-                        <select id="font-select" onchange="setFont()">
-                            <option value="'DM Serif Display', serif">DM Serif (elegant)</option>
-                            <option value="'Playfair Display', serif">Playfair (classic)</option>
-                            <option value="'DM Sans', sans-serif">DM Sans (modern)</option>
-                        </select>
-                    </div>
-                </div>
-                break;
+
         
              }
              
@@ -202,6 +217,7 @@
 @code {
     private int activeTab = 1;
     private bool showPopup = false;
+    private bool showEducationPopup = false;
     private string inputValue = "";
 
 
@@ -216,6 +232,16 @@
         showPopup = false;
     }
 
+    private void OpenEducationPopup()
+    {
+        inputValue = "";
+        showEducationPopup = true;
+    }
+    private void CloseEducationPopup()
+    {
+        inputValue = "";
+        showEducationPopup = false;
+    }
 
 
 }
