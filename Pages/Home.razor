@@ -18,7 +18,24 @@
         </div>
 
 
- 
+
+        @if (showPopup == true)
+        {
+            <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); display: flex; justify-content: center; align-items: center; z-index: 1000;">
+                <div style="background: white; padding: 30px; border-radius: 12px; min-width: 300px;">
+                    <h4>Add Experience</h4>
+                    <label>Company</label>
+                    <input type="text" @bind="inputValue" style="width: 100%; padding: 8px; margin: 10px 0;" />
+                    <div style="display: flex; gap: 10px; margin-top: 15px;">
+
+                        <button @onclick="CloseExperiencePopup" style="padding: 6px 12px;">Cancel</button>
+                        
+                    </div>
+                </div>
+            </div>
+
+        }
+
 
 
   
@@ -29,34 +46,34 @@
                 <div id="tab-info" class="section-panel active">
                     <div class="field-group">
                         <label>Full name</label>
-                        <input type="text" id="inp-name" placeholder="Alexandra Chen" oninput="update()">
+                        <input type="text" id="inp-name" placeholder="Alexandra Chen"  >
                     </div>
                     <div class="field-group">
                         <label>Job title</label>
-                        <input type="text" id="inp-title" placeholder="Senior Product Designer" oninput="update()">
+                        <input type="text" id="inp-title" placeholder="Senior Product Designer"  >
                     </div>
                     <div class="field-group">
                         <label>Professional summary</label>
-                        <textarea id="inp-summary" placeholder="A brief statement about your professional background, key strengths, and career goals..." oninput="update()"></textarea>
+                        <textarea id="inp-summary" placeholder="A brief statement about your professional background, key strengths, and career goals..."  ></textarea>
                     </div>
                     <div class="two-col">
                         <div class="field-group">
                             <label>Email</label>
-                            <input type="email" id="inp-email" placeholder="alex@email.com" oninput="update()">
+                            <input type="email" id="inp-email" placeholder="alex@email.com"  >
                         </div>
                         <div class="field-group">
                             <label>Phone</label>
-                            <input type="tel" id="inp-phone" placeholder="+1 555 000 0000" oninput="update()">
+                            <input type="tel" id="inp-phone" placeholder="+1 555 000 0000"  >
                         </div>
                     </div>
                     <div class="two-col">
                         <div class="field-group">
                             <label>Location</label>
-                            <input type="text" id="inp-location" placeholder="San Francisco, CA" oninput="update()">
+                            <input type="text" id="inp-location" placeholder="San Francisco, CA"  >
                         </div>
                         <div class="field-group">
                             <label>Website / LinkedIn</label>
-                            <input type="url" id="inp-website" placeholder="linkedin.com/in/alex" oninput="update()">
+                            <input type="url" id="inp-website" placeholder="linkedin.com/in/alex"  >
                         </div>
                     </div>
                 </div>
@@ -65,7 +82,7 @@
                 <!-- EXPERIENCE -->
                 <div id="tab-experience" class="section-panel active">
                     <div id="exp-list"></div>
-                    <button class="add-btn" onclick="addEntry('exp')">+ Add experience</button>
+                    <button class="add-btn" @onclick="OpenExperiencePopup">+ Add experience</button>
                 </div>
                 break;
             case 3:
@@ -184,4 +201,21 @@
 
 @code {
     private int activeTab = 1;
+    private bool showPopup = false;
+    private string inputValue = "";
+
+
+    private void OpenExperiencePopup()
+    {
+        inputValue = "";
+        showPopup = true;
+    }
+    private void CloseExperiencePopup()
+    {
+        inputValue = "";
+        showPopup = false;
+    }
+
+
+
 }
