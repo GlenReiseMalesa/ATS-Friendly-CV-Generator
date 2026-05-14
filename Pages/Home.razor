@@ -1,4 +1,18 @@
 ﻿@page "/"
+@using ATS_Friendly_CV_Generator.Models
+@using ATS_Friendly_CV_Generator.Data
+@inject EducationService EducationService
+@inject InfoService InfoService
+@inject SkillsService SkillsService
+@inject ExperienceService ExperienceService
+@inject DatabaseService DatabaseService
+@inject NavigationManager Navigation
+@using ATS_Friendly_CV_Generator.Services
+@using Microsoft.EntityFrameworkCore
+
+@using SqliteWasmHelper
+@inject ISqliteWasmDbContextFactory<AppDbContext> DbFactoryContext
+
 
 <PageTitle>Home</PageTitle>
 
@@ -215,6 +229,8 @@
 <button class="print-btn" >Print / Save PDF</button>
 
 @code {
+
+    //Page functionality
     private int activeTab = 1;
     private bool showPopup = false;
     private bool showEducationPopup = false;
@@ -241,6 +257,167 @@
     {
         inputValue = "";
         showEducationPopup = false;
+    }
+
+    //db functionality
+
+    protected override async Task OnInitializedAsync()
+    {
+
+        await LoadEducationItems();
+        await LoadExperienceItems();
+        await LoadSkillsItems();
+        await LoadInfoItems();
+    }
+
+
+    //Education
+    private List<EducationItem> EducatoniItems = new();
+    private string newQualification = string.Empty;
+    private string newInstitution = string.Empty;
+    private string newDateRange = string.Empty;
+    private string newSummary = string.Empty;
+
+    //read all
+    private async Task LoadEducationItems()
+    {
+
+        await using var context = await DbFactoryContext.CreateDbContextAsync();
+        EducatoniItems = await context.EducationItems.ToListAsync();
+ 
+    }
+
+    //add education 
+    private async Task AddEducation()
+    {
+     
+
+        var education = new EducationItem
+        {
+           
+            Qualification = newQualification,
+            Institution = newInstitution,
+            DateRange = newDateRange,
+            Summary = newSummary
+        };
+
+        await using var context = await DbFactoryContext.CreateDbContextAsync();
+        context.EducationItems.Add(education);
+        await context.SaveChangesAsync();
+        
+        await LoadEducationItems();
+
+    }
+
+    //Experience
+    private List<ExperienceItem> ExperienceItems = new();
+    private string newJobTitle = string.Empty;
+    private string newCompany = string.Empty;
+    private string newDescription = string.Empty;
+  
+    //read all
+    private async Task LoadExperienceItems()
+    {
+
+        await using var context = await DbFactoryContext.CreateDbContextAsync();
+        ExperienceItems = await context.ExperienceItems.ToListAsync();
+
+    }
+
+    //add experience
+    private async Task AddExperience()
+    {
+
+
+        var experience = new ExperienceItem
+        {
+
+            JobTitle = newJobTitle,
+            Company = newCompany,
+            DateRange = newDateRange,
+            Description = newDescription
+        };
+
+        await using var context = await DbFactoryContext.CreateDbContextAsync();
+        context.ExperienceItems.Add(experience);
+        await context.SaveChangesAsync();
+
+        await LoadExperienceItems();
+
+    }
+
+    //Info
+    private List<InfoItem> InfoItems = new();
+    private string newFullName = string.Empty;
+    private string newEmail = string.Empty;
+    private string newPhone = string.Empty;
+    private string newLocation = string.Empty;
+    private string newWebsite = string.Empty;
+   
+    //read all
+    private async Task LoadInfoItems()
+    {
+
+        await using var context = await DbFactoryContext.CreateDbContextAsync();
+        InfoItems = await context.InfoItems.ToListAsync();
+
+    }
+
+    //add info
+    private async Task AddInfo()
+    {
+
+
+        var info = new InfoItem
+        {
+
+            JobTitle = newJobTitle,
+            Summary = newSummary,
+            Email = newEmail,
+            Phone = newPhone,
+            Location = newLocation,
+            Website = newWebsite
+        };
+
+        await using var context = await DbFactoryContext.CreateDbContextAsync();
+        context.InfoItems.Add(info);
+        await context.SaveChangesAsync();
+
+        await LoadInfoItems();
+
+    }
+
+    //Skills
+    private List<SkillsItem> SkillsItems = new();
+    private string newSkill = string.Empty;
+
+    //read all
+    private async Task LoadSkillsItems()
+    {
+
+        await using var context = await DbFactoryContext.CreateDbContextAsync();
+        SkillsItems = await context.SkillsItems.ToListAsync();
+
+    }
+
+    //add skills
+    private async Task AddSkills()
+    {
+
+
+        var skills = new SkillsItem
+        {
+
+            Skill = newSkill,
+
+        };
+
+        await using var context = await DbFactoryContext.CreateDbContextAsync();
+        context.SkillsItems.Add(skills);
+        await context.SaveChangesAsync();
+
+        await LoadSkillsItems();
+
     }
 
 
