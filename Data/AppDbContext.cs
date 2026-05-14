@@ -12,12 +12,12 @@ namespace ATS_Friendly_CV_Generator.Data
         }
 
         //DbSet<InfoItem> represents Info Item table in our database
-        public DbSet<InfoItem> InfoItem { get; set; }
+        public DbSet<InfoItem> InfoItems { get; set; }
 
-        public DbSet<SkillsItem> SkillsItem { get; set; }
+        public DbSet<SkillsItem> SkillsItems { get; set; }
 
-        public DbSet<EducationItem> EducationItem { get; set; }
+        public DbSet<EducationItem> EducationItems { get; set; }
 
-        public DbSet<ExperienceItem> ExperienceItem { get; set; }
+        public DbSet<ExperienceItem> ExperienceItems { get; set; }
     }
 }

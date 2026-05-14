@@ -24,7 +24,7 @@ namespace ATS_Friendly_CV_Generator.Services
                 Console.WriteLine($"Database created/checked: {created}");
 
                 // Verify all tables exist
-                var tablesToCheck = new[] { "InfoItem", "EducationItem", "ExperienceTable", "SkillsTable" };
+                var tablesToCheck = new[] { "InfoItems", "EducationItems", "ExperienceItems", "SkillsItems" };
 
                 foreach (var tableName in tablesToCheck)
                 {

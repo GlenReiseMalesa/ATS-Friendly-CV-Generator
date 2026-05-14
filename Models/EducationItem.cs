@@ -2,7 +2,7 @@
 {
     public class EducationItem
     {
-
+        public int Id { get; set; }
         public string? Qualification { get; set; }
         public string? Institution { get; set; }
         public string? DateRange { get; set; }

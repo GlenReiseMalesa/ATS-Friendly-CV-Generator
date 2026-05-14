@@ -79,6 +79,10 @@
             "SQLitePCLRaw.bundle_e_sqlite3": {
               "target": "Package",
               "version": "[2.1.6, )"
+            },
+            "SqliteWasmHelper": {
+              "target": "Package",
+              "version": "[1.2.0-beta-gf8e1db1f31, )"
             }
           },
           "imports": [
