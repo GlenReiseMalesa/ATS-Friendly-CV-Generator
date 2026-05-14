@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "fN3b3LO+d+U=",
+  "dgSpecHash": "aH5BSOAyB+Q=",
   "success": true,
   "projectFilePath": "C:\\Users\\males\\Desktop\\ATS Friendly CV Generator\\ATS-Friendly-CV-Generator\\ATS Friendly CV Generator.csproj",
   "expectedPackageFiles": [
@@ -44,6 +44,7 @@
     "C:\\Users\\males\\.nuget\\packages\\sqlitepclraw.core\\2.1.6\\sqlitepclraw.core.2.1.6.nupkg.sha512",
     "C:\\Users\\males\\.nuget\\packages\\sqlitepclraw.lib.e_sqlite3\\2.1.6\\sqlitepclraw.lib.e_sqlite3.2.1.6.nupkg.sha512",
     "C:\\Users\\males\\.nuget\\packages\\sqlitepclraw.provider.e_sqlite3\\2.1.6\\sqlitepclraw.provider.e_sqlite3.2.1.6.nupkg.sha512",
+    "C:\\Users\\males\\.nuget\\packages\\sqlitewasmhelper\\1.2.0-beta-gf8e1db1f31\\sqlitewasmhelper.1.2.0-beta-gf8e1db1f31.nupkg.sha512",
     "C:\\Users\\males\\.nuget\\packages\\system.io.pipelines\\8.0.0\\system.io.pipelines.8.0.0.nupkg.sha512",
     "C:\\Users\\males\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
     "C:\\Users\\males\\.nuget\\packages\\system.text.encodings.web\\8.0.0\\system.text.encodings.web.8.0.0.nupkg.sha512",
