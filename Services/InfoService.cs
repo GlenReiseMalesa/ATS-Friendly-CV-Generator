@@ -16,7 +16,7 @@ namespace ATS_Friendly_CV_Generator.Services
         }
 
         // READ : Get single item
-        public async Task<InfoItem?> GetSkillsItemsByIdAsync(int Id)
+        public async Task<InfoItem?> GetInfoItemsByIdAsync(int Id)
         {
             await using var context = await _dbContextFactory.CreateDbContextAsync();
             return await context.InfoItems.FirstOrDefaultAsync(t => t.Id == Id);
@@ -24,3 +24,4 @@ namespace ATS_Friendly_CV_Generator.Services
         }
     }
 }
+
