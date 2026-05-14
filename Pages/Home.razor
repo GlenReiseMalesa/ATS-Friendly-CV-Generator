@@ -42,14 +42,14 @@
                     <label>INSTITUTION</label>
                     <input type="text" @bind="inputValue" style="width: 100%; padding: 8px; margin: 10px 0;" />
                     <label>DATE RANGE</label>
-                    <input type="text"  style="width: 100%; padding: 8px; margin: 10px 0;" />
+                    <input type="text" style="width: 100%; padding: 8px; margin: 10px 0;" />
                     <label>SUMMARY</label>
                     <textarea type="text" style="width: 100%; padding: 8px; margin: 10px 0;" />
                     <div style="display: flex; gap: 10px; margin-top: 15px;">
 
                         <button @onclick="CloseEducationPopup" style="padding: 6px 12px;">Cancel</button>
                         <button @onclick="CloseEducationPopup" style="padding: 6px 12px;">Submit</button>
-                        
+
                     </div>
                 </div>
             </div>
@@ -73,14 +73,14 @@
                     <label>COMPANY</label>
                     <input type="text" @bind="inputValue" style="width: 100%; padding: 8px; margin: 10px 0;" />
                     <label>DATE RANGE</label>
-                    <input type="text"  style="width: 100%; padding: 8px; margin: 10px 0;" />
+                    <input type="text" style="width: 100%; padding: 8px; margin: 10px 0;" />
                     <label>DESCRIPTION</label>
                     <textarea type="text" style="width: 100%; padding: 8px; margin: 10px 0;" />
                     <div style="display: flex; gap: 10px; margin-top: 15px;">
 
                         <button @onclick="CloseExperiencePopup" style="padding: 6px 12px;">Cancel</button>
                         <button @onclick="CloseExperiencePopup" style="padding: 6px 12px;">Submit</button>
-                        
+
                     </div>
                 </div>
             </div>
@@ -91,7 +91,7 @@
 
 
 
-  
+
         @switch (activeTab)
         {
             case 1:
@@ -99,34 +99,34 @@
                 <div id="tab-info" class="section-panel active">
                     <div class="field-group">
                         <label>Full name</label>
-                        <input type="text" id="inp-name" placeholder="Alexandra Chen"  >
+                        <input type="text" id="inp-name" placeholder="Alexandra Chen">
                     </div>
                     <div class="field-group">
                         <label>Job title</label>
-                        <input type="text" id="inp-title" placeholder="Senior Product Designer"  >
+                        <input type="text" id="inp-title" placeholder="Senior Product Designer">
                     </div>
                     <div class="field-group">
                         <label>Professional summary</label>
-                        <textarea id="inp-summary" placeholder="A brief statement about your professional background, key strengths, and career goals..."  ></textarea>
+                        <textarea id="inp-summary" placeholder="A brief statement about your professional background, key strengths, and career goals..."></textarea>
                     </div>
                     <div class="two-col">
                         <div class="field-group">
                             <label>Email</label>
-                            <input type="email" id="inp-email" placeholder="alex@email.com"  >
+                            <input type="email" id="inp-email" placeholder="alex@email.com">
                         </div>
                         <div class="field-group">
                             <label>Phone</label>
-                            <input type="tel" id="inp-phone" placeholder="+1 555 000 0000"  >
+                            <input type="tel" id="inp-phone" placeholder="+1 555 000 0000">
                         </div>
                     </div>
                     <div class="two-col">
                         <div class="field-group">
                             <label>Location</label>
-                            <input type="text" id="inp-location" placeholder="San Francisco, CA"  >
+                            <input type="text" id="inp-location" placeholder="San Francisco, CA">
                         </div>
                         <div class="field-group">
                             <label>Website / LinkedIn</label>
-                            <input type="url" id="inp-website" placeholder="linkedin.com/in/alex"  >
+                            <input type="url" id="inp-website" placeholder="linkedin.com/in/alex">
                         </div>
                     </div>
                 </div>
@@ -159,13 +159,13 @@
                 </div>
                 break;
 
-        
-             }
-             
-    
+
+        }
+
+
     </aside>
 
-   
+
 
     <!-- ══════ RIGHT: PREVIEW ══════ -->
     <div class="preview-wrapper">
@@ -226,7 +226,7 @@
 
 </div>
 
-<button class="print-btn" >Print / Save PDF</button>
+<button class="print-btn">Print / Save PDF</button>
 
 @code {
 
@@ -284,17 +284,17 @@
 
         await using var context = await DbFactoryContext.CreateDbContextAsync();
         EducatoniItems = await context.EducationItems.ToListAsync();
- 
+
     }
 
-    //add education 
+    //add education
     private async Task AddEducation()
     {
-     
+
 
         var education = new EducationItem
         {
-           
+
             Qualification = newQualification,
             Institution = newInstitution,
             DateRange = newDateRange,
@@ -304,7 +304,7 @@
         await using var context = await DbFactoryContext.CreateDbContextAsync();
         context.EducationItems.Add(education);
         await context.SaveChangesAsync();
-        
+
         await LoadEducationItems();
 
     }
@@ -314,7 +314,7 @@
     private string newJobTitle = string.Empty;
     private string newCompany = string.Empty;
     private string newDescription = string.Empty;
-  
+
     //read all
     private async Task LoadExperienceItems()
     {
@@ -353,7 +353,7 @@
     private string newPhone = string.Empty;
     private string newLocation = string.Empty;
     private string newWebsite = string.Empty;
-   
+
     //read all
     private async Task LoadInfoItems()
     {
