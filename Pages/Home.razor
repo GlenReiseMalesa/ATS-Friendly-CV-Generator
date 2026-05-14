@@ -95,6 +95,21 @@
         @switch (activeTab)
         {
             case 1:
+                @foreach(InfoItem infoItem in InfoItems)
+                {
+                    @if (edittingInfoItem != null)
+                    {
+                        checkIfInfoItemsEmpty = false;
+                        edittingInfoItem = infoItem;
+                        //for the update
+                    }
+                    else
+                    {
+                        checkIfInfoItemsEmpty = true;
+                        //for creating the new table
+                    }
+                }
+
                 <!-- PERSONAL INFO -->
                 <div id="tab-info" class="section-panel active">
                     <div class="field-group">
@@ -272,7 +287,7 @@
 
 
     //Education
-    private List<EducationItem> EducatoniItems = new();
+    private List<EducationItem> EducationItems = new();
     private string newQualification = string.Empty;
     private string newInstitution = string.Empty;
     private string newDateRange = string.Empty;
@@ -283,7 +298,7 @@
     {
 
         await using var context = await DbFactoryContext.CreateDbContextAsync();
-        EducatoniItems = await context.EducationItems.ToListAsync();
+        EducationItems = await context.EducationItems.ToListAsync();
 
     }
 
@@ -353,6 +368,8 @@
     private string newPhone = string.Empty;
     private string newLocation = string.Empty;
     private string newWebsite = string.Empty;
+    private bool checkIfInfoItemsEmpty = true;
+    private InfoItem? edittingInfoItem = null;
 
     //read all
     private async Task LoadInfoItems()
@@ -363,27 +380,43 @@
 
     }
 
+    //load the info item for editting
+    private async void LoadInfoItem()
+    {
+
+        if (InfoItems != null)
+        {
+            // Get the info by ID : we use 1 since we will only get 1 row
+            edittingInfoItem = await InfoService.GetInfoItemsByIdAsync(1);
+            //Navigation.NavigateTo("/");
+        }
+
+    }
+
     //add info
     private async Task AddInfo()
     {
-
-
-        var info = new InfoItem
-        {
-
-            JobTitle = newJobTitle,
-            Summary = newSummary,
-            Email = newEmail,
-            Phone = newPhone,
-            Location = newLocation,
-            Website = newWebsite
-        };
-
-        await using var context = await DbFactoryContext.CreateDbContextAsync();
-        context.InfoItems.Add(info);
-        await context.SaveChangesAsync();
-
         await LoadInfoItems();
+        if (InfoItems == null)
+        {
+            var info = new InfoItem
+                {
+
+                    JobTitle = newJobTitle,
+                    Summary = newSummary,
+                    Email = newEmail,
+                    Phone = newPhone,
+                    Location = newLocation,
+                    Website = newWebsite
+                };
+
+            await using var context = await DbFactoryContext.CreateDbContextAsync();
+            context.InfoItems.Add(info);
+            await context.SaveChangesAsync();
+            await LoadInfoItems();
+        }
+
+        
 
     }
 

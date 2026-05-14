@@ -1,15 +1,15 @@
 {
   "mainAssemblyName": "ATS Friendly CV Generator",
   "resources": {
-    "hash": "sha256-xO9Z1r7FuobcFiCgjaLG9qYPtoGTeQnIpnuPSbO7l6I=",
+    "hash": "sha256-R0ru4z1T9b2kKn0y4DBeZmPJJne6JC0uReWLhwCgBgo=",
     "jsModuleNative": {
-      "dotnet.native.js": "sha256-w52HPfHQ+pVc5dJ3bBdwXggU5ywht7S6u4ElvwbvB9A="
+      "dotnet.native.js": "sha256-SfPzDujTcFI9X+nNs36y0nhB2P7hVahg9Jpe+jZmyaY="
     },
     "jsModuleRuntime": {
       "dotnet.runtime.js": "sha256-HuKpYzsYoQBMbqMPjy15HX+ShsypvOKN9uGvoA7P/+o="
     },
     "wasmNative": {
-      "dotnet.native.wasm": "sha256-ZUkGdRaFCE95ZqzEvnbiLv4gClF0ycE5dOJwn5Xb0So="
+      "dotnet.native.wasm": "sha256-occBkAw3wNJkpdps1YiG7TQLHOWUw8q7q50yZKs1DpY="
     },
     "icu": {
       "icudt_CJK.dat": "sha256-SZLtQnRc0JkwqHab0VUVP7T3uBPSeYzxzDnpxPpUnHk=",
@@ -51,6 +51,7 @@
       "SQLitePCLRaw.batteries_v2.wasm": "sha256-AymqXfJmredfnqn6PxQs3nqqNoMXiBDEqaT3b0605F8=",
       "SQLitePCLRaw.core.wasm": "sha256-5ncp/PNVntosOHmUwpvRVJZvvreYP08nlkqD9XgBkdA=",
       "SQLitePCLRaw.provider.e_sqlite3.wasm": "sha256-3TKRNpWG681LxI/l31HI8LuIjsCjG6XJ9dIEXu3m1zY=",
+      "SqliteWasmHelper.wasm": "sha256-8tCILl7yTLbqAf+eZQfT68evOmO346oFwUDQ+TClfa4=",
       "System.IO.Pipelines.wasm": "sha256-JqVBy6SV+3qk+IK3VJiyIDt9CsVk6b1/ytTXmrI4mTM=",
       "Microsoft.CSharp.wasm": "sha256-Sdwr77LfnE/jgnAfkLzawMV5zJ/YnUhFonCjclvUe8A=",
       "Microsoft.VisualBasic.Core.wasm": "sha256-Y+aM4cUfA1DezOZ0J7UpdE2EqoXEc8mG73va0r5Cf/4=",
@@ -220,10 +221,10 @@
       "mscorlib.wasm": "sha256-UzRTTeY8BezBltrUF59UgvVNxbmnZS3LeowarsPY8+Y=",
       "netstandard.wasm": "sha256-xHQSNwqHm8E9DM86qW7CTJoRXXsQuGmPeNipDwQFNr8=",
       "System.Private.CoreLib.wasm": "sha256-N9/Djwpe2mX4HdyhCGu9jrxG/DSYKoTPbtsIOv6VFDk=",
-      "ATS Friendly CV Generator.wasm": "sha256-pUZtFQk0WPmKGO9pbVjhRpUj0pTHvLEs+sCWNAwhtpE="
+      "ATS Friendly CV Generator.wasm": "sha256-wIsd/a2k3cfg//q6kkGA4R7e66TtixPs1NcQOSId8UQ="
     },
     "pdb": {
-      "ATS Friendly CV Generator.pdb": "sha256-ryq2gb2LKpJPYK4x09QlqN2FJPbJryF9j7/n+B875co="
+      "ATS Friendly CV Generator.pdb": "sha256-/efpTq2sZy43UeBeP9vqD67CuHiOxY9gHTJfxLN+wsI="
     }
   },
   "cacheBootResources": true,

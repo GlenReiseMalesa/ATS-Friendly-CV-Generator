@@ -21,9 +21,9 @@ try
     builder.Services.AddScoped<ExperienceService>();
     builder.Services.AddScoped<EducationService>();
     builder.Services.AddScoped<DatabaseService>();
+    builder.Services.AddScoped<InfoService>();
     builder.Services.AddScoped<SkillsService>();
-    builder.Services.AddScoped<DatabaseService>();
-
+  
 
     builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
