@@ -95,56 +95,103 @@
         @switch (activeTab)
         {
             case 1:
-                @foreach(InfoItem infoItem in InfoItems)
-                {
+               
                     @if (edittingInfoItem != null)
-                    {
-                        checkIfInfoItemsEmpty = false;
-                        edittingInfoItem = infoItem;
+                    {        
                         //for the update
+                    <!-- PERSONAL INFO -->
+                    <form action="#" method="get">
+                    <div id="tab-info" class="section-panel active">
+                        <div class="field-group">
+                            <label>Full name</label>
+                            <input type="text" id="inp-name" placeholder="Alexandra Chen">
+                        </div>
+                        <div class="field-group">
+                            <label>Job title</label>
+                            <input type="text" id="inp-title" placeholder="Senior Product Designer">
+                        </div>
+                        <div class="field-group">
+                            <label>Professional summary</label>
+                            <textarea id="inp-summary" placeholder="A brief statement about your professional background, key strengths, and career goals..."></textarea>
+                        </div>
+                        <div class="two-col">
+                            <div class="field-group">
+                                <label>Email</label>
+                                <input type="email" id="inp-email" placeholder="alex@email.com">
+                            </div>
+                            <div class="field-group">
+                                <label>Phone</label>
+                                <input type="tel" id="inp-phone" placeholder="+1 555 000 0000">
+                            </div>
+                        </div>
+                        <div class="two-col">
+                            <div class="field-group">
+                                <label>Location</label>
+                                <input type="text" id="inp-location" placeholder="San Francisco, CA">
+                            </div>
+                            <div class="field-group">
+                                <label>Website / LinkedIn</label>
+                                <input type="url" id="inp-website" placeholder="linkedin.com/in/alex">
+                            </div>
+                        </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary" onclick="" style="padding: 6px 16px;">UPDATE</button>
+                            </div>
+                    </div>
+                       
+                    </form>
                     }
                     else
                     {
-                        checkIfInfoItemsEmpty = true;
+                        
                         //for creating the new table
-                    }
-                }
+                    <!-- PERSONAL INFO -->
+                    <form action="#" method="get">
+                    <div id="tab-info" class="section-panel active">
+                        <div class="field-group">
+                            <label>Full name</label>
+                            <input type="text" id="inp-name" placeholder="Alexandra Chen">
+                        </div>
+                        <div class="field-group">
+                            <label>Job title</label>
+                            <input type="text" id="inp-title" placeholder="Senior Product Designer">
+                        </div>
+                        <div class="field-group">
+                            <label>Professional summary</label>
+                            <textarea id="inp-summary" placeholder="A brief statement about your professional background, key strengths, and career goals..."></textarea>
+                        </div>
+                        <div class="two-col">
+                            <div class="field-group">
+                                <label>Email</label>
+                                <input type="email" id="inp-email" placeholder="alex@email.com">
+                            </div>
+                            <div class="field-group">
+                                <label>Phone</label>
+                                <input type="tel" id="inp-phone" placeholder="+1 555 000 0000">
+                            </div>
+                        </div>
+                        <div class="two-col">
+                            <div class="field-group">
+                                <label>Location</label>
+                                <input type="text" id="inp-location" placeholder="San Francisco, CA">
+                            </div>
+                            <div class="field-group">
+                                <label>Website / LinkedIn</label>
+                                <input type="url" id="inp-website" placeholder="linkedin.com/in/alex">
+                            </div>
+                        </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary" onclick="" style="padding: 6px 16px;">SAVE</button>
+                            </div>
+                    </div>
+                       
+                    </form>
 
-                <!-- PERSONAL INFO -->
-                <div id="tab-info" class="section-panel active">
-                    <div class="field-group">
-                        <label>Full name</label>
-                        <input type="text" id="inp-name" placeholder="Alexandra Chen">
-                    </div>
-                    <div class="field-group">
-                        <label>Job title</label>
-                        <input type="text" id="inp-title" placeholder="Senior Product Designer">
-                    </div>
-                    <div class="field-group">
-                        <label>Professional summary</label>
-                        <textarea id="inp-summary" placeholder="A brief statement about your professional background, key strengths, and career goals..."></textarea>
-                    </div>
-                    <div class="two-col">
-                        <div class="field-group">
-                            <label>Email</label>
-                            <input type="email" id="inp-email" placeholder="alex@email.com">
-                        </div>
-                        <div class="field-group">
-                            <label>Phone</label>
-                            <input type="tel" id="inp-phone" placeholder="+1 555 000 0000">
-                        </div>
-                    </div>
-                    <div class="two-col">
-                        <div class="field-group">
-                            <label>Location</label>
-                            <input type="text" id="inp-location" placeholder="San Francisco, CA">
-                        </div>
-                        <div class="field-group">
-                            <label>Website / LinkedIn</label>
-                            <input type="url" id="inp-website" placeholder="linkedin.com/in/alex">
-                        </div>
-                    </div>
-                </div>
+                        
+                    }
+                
+
+  
                 break;
             case 2:
                 <!-- EXPERIENCE -->
@@ -368,7 +415,6 @@
     private string newPhone = string.Empty;
     private string newLocation = string.Empty;
     private string newWebsite = string.Empty;
-    private bool checkIfInfoItemsEmpty = true;
     private InfoItem? edittingInfoItem = null;
 
     //read all
@@ -377,6 +423,7 @@
 
         await using var context = await DbFactoryContext.CreateDbContextAsync();
         InfoItems = await context.InfoItems.ToListAsync();
+
 
     }
 
