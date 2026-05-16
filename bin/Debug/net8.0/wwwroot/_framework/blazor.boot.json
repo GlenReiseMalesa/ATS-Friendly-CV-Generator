@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "ATS Friendly CV Generator",
   "resources": {
-    "hash": "sha256-R0ru4z1T9b2kKn0y4DBeZmPJJne6JC0uReWLhwCgBgo=",
+    "hash": "sha256-RGgFrbVXCvki9j6Tof6IGMJ8oVeY30jc3kY18jXQnx4=",
     "jsModuleNative": {
       "dotnet.native.js": "sha256-SfPzDujTcFI9X+nNs36y0nhB2P7hVahg9Jpe+jZmyaY="
     },
@@ -221,10 +221,10 @@
       "mscorlib.wasm": "sha256-UzRTTeY8BezBltrUF59UgvVNxbmnZS3LeowarsPY8+Y=",
       "netstandard.wasm": "sha256-xHQSNwqHm8E9DM86qW7CTJoRXXsQuGmPeNipDwQFNr8=",
       "System.Private.CoreLib.wasm": "sha256-N9/Djwpe2mX4HdyhCGu9jrxG/DSYKoTPbtsIOv6VFDk=",
-      "ATS Friendly CV Generator.wasm": "sha256-wIsd/a2k3cfg//q6kkGA4R7e66TtixPs1NcQOSId8UQ="
+      "ATS Friendly CV Generator.wasm": "sha256-LQgyEivn1zJM1NXuhxjVTTMwuNoo7HWE1t9Xtz7mGUk="
     },
     "pdb": {
-      "ATS Friendly CV Generator.pdb": "sha256-/efpTq2sZy43UeBeP9vqD67CuHiOxY9gHTJfxLN+wsI="
+      "ATS Friendly CV Generator.pdb": "sha256-GcYPtTV3jAgO/tW4Oc5ymQDsGtcXD6HUqUEArchM/yE="
     }
   },
   "cacheBootResources": true,
