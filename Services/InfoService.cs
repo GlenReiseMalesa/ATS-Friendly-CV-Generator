@@ -22,6 +22,29 @@ namespace ATS_Friendly_CV_Generator.Services
             return await context.InfoItems.FirstOrDefaultAsync(t => t.Id == Id);
 
         }
+
+
+
+        //UPDATE : update a InfoItem
+        public async Task<bool> UpdateInfoAsync(int id, string newFullName, string newJobTitle, string newSummary, string newEmail, string newPhone, string newLocation, string newWebsite)
+        {
+            await using var context = await _dbContextFactory.CreateDbContextAsync();
+
+            var InfoItem = await context.InfoItems.FindAsync(id);
+            if (InfoItem == null) return false;
+
+            InfoItem.FullName = newFullName;
+            InfoItem.JobTitle = newJobTitle;
+            InfoItem.Summary = newSummary;
+            InfoItem.Email = newEmail;
+            InfoItem.Phone = newPhone;
+            InfoItem.Location = newLocation;
+            InfoItem.Website = newWebsite;
+     
+
+            await context.SaveChangesAsync();
+            return true;
+        }
     }
 }
 
