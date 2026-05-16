@@ -104,38 +104,38 @@
                     <div id="tab-info" class="section-panel active">
                         <div class="field-group">
                             <label>Full name</label>
-                            <input type="text" id="inp-name" placeholder="Alexandra Chen">
+                            <input type="text" @bind-value="edittingInfoItem.FullName" id="inp-name" placeholder="Alexandra Chen">
                         </div>
                         <div class="field-group">
                             <label>Job title</label>
-                            <input type="text" id="inp-title" placeholder="Senior Product Designer">
+                                <input type="text" id="inp-title" @bind-value="edittingInfoItem.JobTitle" placeholder="Senior Product Designer">
                         </div>
                         <div class="field-group">
                             <label>Professional summary</label>
-                            <textarea id="inp-summary" placeholder="A brief statement about your professional background, key strengths, and career goals..."></textarea>
+                            <textarea id="inp-summary" @bind="edittingInfoItem.Summary"  placeholder="A brief statement about your professional background, key strengths, and career goals..."></textarea>
                         </div>
                         <div class="two-col">
                             <div class="field-group">
                                 <label>Email</label>
-                                <input type="email" id="inp-email" placeholder="alex@email.com">
+                                    <input type="email" @bind-value="edittingInfoItem.Email" id="inp-email" placeholder="alex@email.com">
                             </div>
                             <div class="field-group">
                                 <label>Phone</label>
-                                <input type="tel" id="inp-phone" placeholder="+1 555 000 0000">
+                                    <input type="tel" @bind-value="edittingInfoItem.Phone" id="inp-phone" placeholder="+1 555 000 0000">
                             </div>
                         </div>
                         <div class="two-col">
                             <div class="field-group">
                                 <label>Location</label>
-                                <input type="text" id="inp-location" placeholder="San Francisco, CA">
+                                    <input type="text" id="inp-location" @bind-value="edittingInfoItem.Location" placeholder="San Francisco, CA">
                             </div>
                             <div class="field-group">
                                 <label>Website / LinkedIn</label>
-                                <input type="url" id="inp-website" placeholder="linkedin.com/in/alex">
+                                    <input type="url" id="inp-website" @bind-value="edittingInfoItem.Website" placeholder="linkedin.com/in/alex">
                             </div>
                         </div>
                             <div class="form-group">
-                                <button type="submit" class="btn btn-primary" onclick="" style="padding: 6px 16px;">UPDATE</button>
+                                <button type="submit" class="btn btn-primary" onclick="@UpdateInfoItem()" style="padding: 6px 16px;">UPDATE</button>
                             </div>
                     </div>
                        
@@ -150,38 +150,38 @@
                     <div id="tab-info" class="section-panel active">
                         <div class="field-group">
                             <label>Full name</label>
-                            <input type="text" id="inp-name" placeholder="Alexandra Chen">
+                            <input type="text" id="inp-name" @bind="newFullName" placeholder="Alexandra Chen">
                         </div>
                         <div class="field-group">
                             <label>Job title</label>
-                            <input type="text" id="inp-title" placeholder="Senior Product Designer">
+                                <input type="text" id="inp-title" @bind="newJobTitle" placeholder="Senior Product Designer">
                         </div>
                         <div class="field-group">
                             <label>Professional summary</label>
-                            <textarea id="inp-summary" placeholder="A brief statement about your professional background, key strengths, and career goals..."></textarea>
+                            <textarea id="inp-summary" @bind="newSummary" placeholder="A brief statement about your professional background, key strengths, and career goals..."></textarea>
                         </div>
                         <div class="two-col">
                             <div class="field-group">
                                 <label>Email</label>
-                                <input type="email" id="inp-email" placeholder="alex@email.com">
+                                <input type="email" @bind="newEmail" id="inp-email" placeholder="alex@email.com">
                             </div>
                             <div class="field-group">
                                 <label>Phone</label>
-                                <input type="tel" id="inp-phone" placeholder="+1 555 000 0000">
+                                    <input type="tel" id="inp-phone" @bind="newPhone" placeholder="+1 555 000 0000">
                             </div>
                         </div>
                         <div class="two-col">
                             <div class="field-group">
                                 <label>Location</label>
-                                <input type="text" id="inp-location" placeholder="San Francisco, CA">
+                                    <input type="text" id="inp-location" @bind="newLocation" placeholder="San Francisco, CA">
                             </div>
                             <div class="field-group">
                                 <label>Website / LinkedIn</label>
-                                <input type="url" id="inp-website" placeholder="linkedin.com/in/alex">
+                                    <input type="text" id="inp-website" @bind="newWebsite" placeholder="linkedin.com/in/alex">
                             </div>
                         </div>
                             <div class="form-group">
-                                <button type="submit" class="btn btn-primary" onclick="" style="padding: 6px 16px;">SAVE</button>
+                                <button type="submit" class="btn btn-primary" onclick="@AddInfo()" style="padding: 6px 16px;">SAVE</button>
                             </div>
                     </div>
                        
@@ -420,17 +420,6 @@
     //read all
     private async Task LoadInfoItems()
     {
-
-        await using var context = await DbFactoryContext.CreateDbContextAsync();
-        InfoItems = await context.InfoItems.ToListAsync();
-
-
-    }
-
-    //load the info item for editting
-    private async void LoadInfoItem()
-    {
-
         if (InfoItems != null)
         {
             // Get the info by ID : we use 1 since we will only get 1 row
@@ -438,17 +427,29 @@
             //Navigation.NavigateTo("/");
         }
 
+        await using var context = await DbFactoryContext.CreateDbContextAsync();
+        InfoItems = await context.InfoItems.ToListAsync();
+
+
     }
+
+    // Update Info
+    private async Task UpdateInfoItem()
+    {
+        var success = await InfoService.UpdateInfoAsync(1, edittingInfoItem.FullName, edittingInfoItem.JobTitle, edittingInfoItem.Summary, edittingInfoItem.Email, edittingInfoItem.Phone, edittingInfoItem.Location, edittingInfoItem.Website);
+        await LoadInfoItems();
+
+    }
+
+
 
     //add info
     private async Task AddInfo()
     {
-        await LoadInfoItems();
-        if (InfoItems == null)
-        {
+        
             var info = new InfoItem
                 {
-
+                    FullName = newFullName,
                     JobTitle = newJobTitle,
                     Summary = newSummary,
                     Email = newEmail,
@@ -461,7 +462,7 @@
             context.InfoItems.Add(info);
             await context.SaveChangesAsync();
             await LoadInfoItems();
-        }
+        
 
         
 
