@@ -23,6 +23,18 @@ namespace ATS_Friendly_CV_Generator.Services
 
         }
 
+        //DELETE : delete a InfoItem
+        public async Task<bool> DeleteInfoItemAsync(int id)
+        {
+            await using var context = await _dbContextFactory.CreateDbContextAsync();
+
+            var InfoItem = await context.InfoItems.FindAsync(id);
+            if (InfoItem == null) return false;
+
+            context.InfoItems.Remove(InfoItem);
+            await context.SaveChangesAsync();
+            return true;
+        }
 
 
         //UPDATE : update a InfoItem
