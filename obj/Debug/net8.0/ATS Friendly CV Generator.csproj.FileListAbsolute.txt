@@ -1108,6 +1108,6 @@ C:\Users\males\Desktop\ATS Friendly CV Generator\ATS-Friendly-CV-Generator\obj\D
 C:\Users\males\Desktop\ATS Friendly CV Generator\ATS-Friendly-CV-Generator\obj\Debug\net8.0\compressed\i59pbgvyq4-ec19oufexo.gz
 C:\Users\males\Desktop\ATS Friendly CV Generator\ATS-Friendly-CV-Generator\obj\Debug\net8.0\compressed\jv95bslixv-hjb7fzdzdu.gz
 C:\Users\males\Desktop\ATS Friendly CV Generator\ATS-Friendly-CV-Generator\obj\Debug\net8.0\compressed\w2z1k77sil-kjg5zkq4lr.gz
-C:\Users\males\Desktop\ATS Friendly CV Generator\ATS-Friendly-CV-Generator\obj\Debug\net8.0\compressed\ohiitqj19d-fpxnsdqbq5.gz
-C:\Users\males\Desktop\ATS Friendly CV Generator\ATS-Friendly-CV-Generator\obj\Debug\net8.0\compressed\eda9hw19ne-55fu48nfpn.gz
-C:\Users\males\Desktop\ATS Friendly CV Generator\ATS-Friendly-CV-Generator\obj\Debug\net8.0\compressed\joxlu964e2-d9nuftgd2k.gz
+C:\Users\males\Desktop\ATS Friendly CV Generator\ATS-Friendly-CV-Generator\obj\Debug\net8.0\compressed\ohiitqj19d-ikfgpu1zfz.gz
+C:\Users\males\Desktop\ATS Friendly CV Generator\ATS-Friendly-CV-Generator\obj\Debug\net8.0\compressed\eda9hw19ne-7k0wdhkfsf.gz
+C:\Users\males\Desktop\ATS Friendly CV Generator\ATS-Friendly-CV-Generator\obj\Debug\net8.0\compressed\joxlu964e2-8lkg1coelz.gz

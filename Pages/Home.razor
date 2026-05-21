@@ -224,11 +224,21 @@
                     <div class="field-group">
                         <label>Add skill</label>
                         <div class="skill-input-row">
-                            <input type="text" id="skill-input" placeholder="e.g. Figma, Python, Project management" onkeydown="if(event.key==='Enter') addSkill()">
-                            <button class="add-skill-btn" onclick="addSkill()">Add</button>
+                            <input type="text" id="skill-input" @bind="newSkill" placeholder="e.g. Figma, Python, Project management" >
+                            <button class="add-skill-btn" @onclick="AddSkills">Add</button>
                         </div>
                     </div>
-                    <div class="skill-tags" id="skill-tags"></div>
+                    <div class="skill-tags" id="skill-tags">
+                        @foreach (SkillsItem skillsItem in SkillsItems)
+                        {
+                            <div class="card" style="width: 18rem;margin-bottom : 10px;">
+                                <div class="card-body">
+                                    <h5 class="card-title">@skillsItem.Skill<button class="btn btn-danger" @onclick="() => DeleteSkillsItem(skillsItem.Id)" style="padding: 6px 16px;float:right;">X</button></h5>
+                              
+                                </div>
+                            </div>
+                        }
+                    </div>
                 </div>
                 break;
 
@@ -479,7 +489,7 @@
         else
         {
             edittingInfoItem = null; // No data found
-           
+
         }
 
     }
@@ -508,8 +518,8 @@
     //add info
     private async Task AddInfo()
     {
-        
-            var info = new InfoItem
+
+        var info = new InfoItem
                 {
                     FullName = newFullName,
                     JobTitle = newJobTitle,
@@ -520,10 +530,10 @@
                     Website = newWebsite
                 };
 
-            await using var context = await DbFactoryContext.CreateDbContextAsync();
-            context.InfoItems.Add(info);
-            await context.SaveChangesAsync();
-             
+        await using var context = await DbFactoryContext.CreateDbContextAsync();
+        context.InfoItems.Add(info);
+        await context.SaveChangesAsync();
+
         await LoadInfoItems();
         StateHasChanged();
 
@@ -539,6 +549,17 @@
 
         await using var context = await DbFactoryContext.CreateDbContextAsync();
         SkillsItems = await context.SkillsItems.ToListAsync();
+
+    }
+
+    // DELETE skills Item
+    private async Task DeleteSkillsItem(int id)
+    {
+
+        var success = await SkillsService.DeleteSkillsItemAsync(id);
+
+        await LoadSkillsItems();
+        StateHasChanged();
 
     }
 
@@ -559,7 +580,8 @@
         await context.SaveChangesAsync();
 
         await LoadSkillsItems();
-
+        StateHasChanged();
+        newSkill = "";
     }
 
 
