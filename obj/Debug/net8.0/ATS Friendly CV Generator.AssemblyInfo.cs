@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ATS Friendly CV Generator")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+de966841345805e13f78a50cd4c0369677f20477")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d40f84082ffe47a2c1fc82790e74e500e93bcdd9")]
 [assembly: System.Reflection.AssemblyProductAttribute("ATS Friendly CV Generator")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ATS Friendly CV Generator")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
