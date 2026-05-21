@@ -95,61 +95,55 @@
         @switch (activeTab)
         {
             case 1:
-               
-                    @if (edittingInfoItem != null)
-                    {        
-                        //for the update
-                    <!-- PERSONAL INFO -->
-                    <form action="#" method="get">
+                @if (edittingInfoItem != null)
+                {
+                    <!-- PERSONAL INFO - EDIT MODE -->
                     <div id="tab-info" class="section-panel active">
                         <div class="field-group">
                             <label>Full name</label>
-                            <input type="text" @bind-value="edittingInfoItem.FullName" id="inp-name" placeholder="Alexandra Chen">
+                            <input type="text" @bind="edittingInfoItem.FullName" id="inp-name" placeholder="Alexandra Chen">
                         </div>
                         <div class="field-group">
                             <label>Job title</label>
-                                <input type="text" id="inp-title" @bind-value="edittingInfoItem.JobTitle" placeholder="Senior Product Designer">
+                            <input type="text" id="inp-title" @bind="edittingInfoItem.JobTitle" placeholder="Senior Product Designer">
                         </div>
                         <div class="field-group">
                             <label>Professional summary</label>
-                            <textarea id="inp-summary" @bind="edittingInfoItem.Summary"  placeholder="A brief statement about your professional background, key strengths, and career goals..."></textarea>
+                            <textarea id="inp-summary" @bind="edittingInfoItem.Summary" placeholder="A brief statement..."></textarea>
                         </div>
                         <div class="two-col">
                             <div class="field-group">
                                 <label>Email</label>
-                                    <input type="email" @bind-value="edittingInfoItem.Email" id="inp-email" placeholder="alex@email.com">
+                                <input type="email" @bind="edittingInfoItem.Email" id="inp-email" placeholder="alex@email.com">
                             </div>
                             <div class="field-group">
                                 <label>Phone</label>
-                                    <input type="tel" @bind-value="edittingInfoItem.Phone" id="inp-phone" placeholder="+1 555 000 0000">
+                                <input type="tel" @bind="edittingInfoItem.Phone" id="inp-phone" placeholder="+1 555 000 0000">
                             </div>
                         </div>
                         <div class="two-col">
                             <div class="field-group">
                                 <label>Location</label>
-                                    <input type="text" id="inp-location" @bind-value="edittingInfoItem.Location" placeholder="San Francisco, CA">
+                                <input type="text" @bind="edittingInfoItem.Location" id="inp-location" placeholder="San Francisco, CA">
                             </div>
                             <div class="field-group">
                                 <label>Website / LinkedIn</label>
-                                    <input type="url" id="inp-website" @bind-value="edittingInfoItem.Website" placeholder="linkedin.com/in/alex">
+                                <input type="text" @bind="edittingInfoItem.Website" id="inp-website" placeholder="linkedin.com/in/alex">
                             </div>
                         </div>
-                            <div class="form-group">
-                                <button type="submit" class="btn btn-primary" onclick="@UpdateInfoItem()" style="padding: 6px 16px;">UPDATE</button>
-                            </div>
-                            <div class="form-group">
-                                <button type="submit" class="btn btn-primary" onclick="@DeleteInfoItem(1)" style="padding: 6px 16px;">CLEAR</button>
-                            </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary" @onclick="UpdateInfoItem" style="padding: 6px 16px;">UPDATE</button>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-danger" @onclick="() => DeleteInfoItem(edittingInfoItem.Id)" style="padding: 6px 16px;">CLEAR</button>
+                        </div>
                     </div>
-                       
-                    </form>
-                    }
-                    else
-                    {
-                        
-                        //for creating the new table
-                    <!-- PERSONAL INFO -->
-                    <form action="#" method="get">
+
+                    Console.WriteLine("Count : " + InfoItems.Count);
+                }
+                else
+                {
+                    <!-- PERSONAL INFO - CREATE MODE -->
                     <div id="tab-info" class="section-panel active">
                         <div class="field-group">
                             <label>Full name</label>
@@ -157,11 +151,11 @@
                         </div>
                         <div class="field-group">
                             <label>Job title</label>
-                                <input type="text" id="inp-title" @bind="newJobTitle" placeholder="Senior Product Designer">
+                            <input type="text" id="inp-title" @bind="newJobTitle" placeholder="Senior Product Designer">
                         </div>
                         <div class="field-group">
                             <label>Professional summary</label>
-                            <textarea id="inp-summary" @bind="newSummary" placeholder="A brief statement about your professional background, key strengths, and career goals..."></textarea>
+                            <textarea id="inp-summary" @bind="newSummary" placeholder="A brief statement..."></textarea>
                         </div>
                         <div class="two-col">
                             <div class="field-group">
@@ -170,31 +164,24 @@
                             </div>
                             <div class="field-group">
                                 <label>Phone</label>
-                                    <input type="tel" id="inp-phone" @bind="newPhone" placeholder="+1 555 000 0000">
+                                <input type="tel" @bind="newPhone" id="inp-phone" placeholder="+1 555 000 0000">
                             </div>
                         </div>
                         <div class="two-col">
                             <div class="field-group">
                                 <label>Location</label>
-                                    <input type="text" id="inp-location" @bind="newLocation" placeholder="San Francisco, CA">
+                                <input type="text" @bind="newLocation" id="inp-location" placeholder="San Francisco, CA">
                             </div>
                             <div class="field-group">
                                 <label>Website / LinkedIn</label>
-                                    <input type="text" id="inp-website" @bind="newWebsite" placeholder="linkedin.com/in/alex">
+                                <input type="text" @bind="newWebsite" id="inp-website" placeholder="linkedin.com/in/alex">
                             </div>
                         </div>
-                            <div class="form-group">
-                                <button type="submit" class="btn btn-primary" onclick="@AddInfo()" style="padding: 6px 16px;">SAVE</button>
-                            </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary" @onclick="AddInfo" style="padding: 6px 16px;">SAVE</button>
+                        </div>
                     </div>
-                       
-                    </form>
-
-                        
-                    }
-                
-
-  
+                }
                 break;
             case 2:
                 <!-- EXPERIENCE -->
@@ -329,10 +316,10 @@
     protected override async Task OnInitializedAsync()
     {
 
+        await LoadInfoItems();  // Load info first
         await LoadEducationItems();
         await LoadExperienceItems();
         await LoadSkillsItems();
-        await LoadInfoItems();
     }
 
 
@@ -423,16 +410,21 @@
     //read all
     private async Task LoadInfoItems()
     {
-        if (InfoItems != null)
-        {
-            // Get the info by ID : we use 1 since we will only get 1 row
-            edittingInfoItem = await InfoService.GetInfoItemsByIdAsync(1);
-            //Navigation.NavigateTo("/");
-        }
+
 
         await using var context = await DbFactoryContext.CreateDbContextAsync();
         InfoItems = await context.InfoItems.ToListAsync();
 
+        // Set edittingInfoItem to the first item if it exists
+        if (InfoItems != null && InfoItems.Any())
+        {
+            edittingInfoItem = InfoItems.First();
+        }
+        else
+        {
+            edittingInfoItem = null; // No data found
+           
+        }
 
     }
 
@@ -443,16 +435,16 @@
         var success = await InfoService.DeleteInfoItemAsync(id);
 
         await LoadInfoItems();
-
+        StateHasChanged();
 
     }
 
     // Update Info
     private async Task UpdateInfoItem()
     {
-        var success = await InfoService.UpdateInfoAsync(1, edittingInfoItem.FullName, edittingInfoItem.JobTitle, edittingInfoItem.Summary, edittingInfoItem.Email, edittingInfoItem.Phone, edittingInfoItem.Location, edittingInfoItem.Website);
+        var success = await InfoService.UpdateInfoAsync(edittingInfoItem.Id, edittingInfoItem.FullName, edittingInfoItem.JobTitle, edittingInfoItem.Summary, edittingInfoItem.Email, edittingInfoItem.Phone, edittingInfoItem.Location, edittingInfoItem.Website);
         await LoadInfoItems();
-
+        StateHasChanged();
     }
 
 
@@ -475,10 +467,9 @@
             await using var context = await DbFactoryContext.CreateDbContextAsync();
             context.InfoItems.Add(info);
             await context.SaveChangesAsync();
-            await LoadInfoItems();
-        
-
-        
+             
+        await LoadInfoItems();
+        StateHasChanged();
 
     }
 
