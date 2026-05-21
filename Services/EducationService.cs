@@ -15,12 +15,17 @@ namespace ATS_Friendly_CV_Generator.Services
             _dbContextFactory = dbContextFactory;
         }
 
-        // READ : Get single item
-        public async Task<EducationItem?> GetSkillsItemsByIdAsync(int Id)
+        //DELETE : delete a EducationItem
+        public async Task<bool> DeleteEducationItemAsync(int id)
         {
             await using var context = await _dbContextFactory.CreateDbContextAsync();
-            return await context.EducationItems.FirstOrDefaultAsync(t => t.Id == Id);
 
+            var EducationItem = await context.EducationItems.FindAsync(id);
+            if (EducationItem == null) return false;
+
+            context.EducationItems.Remove(EducationItem);
+            await context.SaveChangesAsync();
+            return true;
         }
     }
 }

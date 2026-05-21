@@ -37,27 +37,24 @@
             <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); display: flex; justify-content: center; align-items: center; z-index: 1000;">
                 <div style="background: white; padding: 30px; border-radius: 12px; min-width: 300px;">
                     <h4>Add Education</h4>
-                    <label>DEGREE</label>
-                    <input type="text" style="width: 100%; padding: 8px; margin: 10px 0;" />
+                    <label>Qualification</label>
+                    <input type="text" @bind="newQualification" style="width: 100%; padding: 8px; margin: 10px 0;" />
                     <label>INSTITUTION</label>
-                    <input type="text" @bind="inputValue" style="width: 100%; padding: 8px; margin: 10px 0;" />
+                    <input type="text" @bind="newInstitution" style="width: 100%; padding: 8px; margin: 10px 0;" />
                     <label>DATE RANGE</label>
-                    <input type="text" style="width: 100%; padding: 8px; margin: 10px 0;" />
+                    <input type="text" @bind="newDateRange" style="width: 100%; padding: 8px; margin: 10px 0;" />
                     <label>SUMMARY</label>
-                    <textarea type="text" style="width: 100%; padding: 8px; margin: 10px 0;" />
+                    <textarea type="text" @bind="newSummary" style="width: 100%; padding: 8px; margin: 10px 0;" />
                     <div style="display: flex; gap: 10px; margin-top: 15px;">
 
                         <button @onclick="CloseEducationPopup" style="padding: 6px 12px;">Cancel</button>
-                        <button @onclick="CloseEducationPopup" style="padding: 6px 12px;">Submit</button>
+                        <button @onclick="AddEducation" style="padding: 6px 12px;">Submit</button>
 
                     </div>
                 </div>
             </div>
 
         }
-
-
-
 
 
 
@@ -206,7 +203,18 @@
             case 3:
                 <!-- EDUCATION -->
                 <div id="tab-education" class="section-panel active">
-                    <div id="edu-list"></div>
+                    <div id="edu-list">
+                        @foreach (EducationItem educationItem in EducationItems)
+                        {
+                            <div class="card" style="width: 18rem;margin-bottom : 10px;">
+                                <div class="card-body">
+                                    <h5 class="card-title">@educationItem.Qualification<button class="btn btn-danger" @onclick="() => DeleteEducationItem(educationItem.Id)" style="padding: 6px 16px;float:right;">X</button></h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">@educationItem.Institution | @educationItem.DateRange</h6>
+                                    <p class="card-text">@educationItem.Summary</p>
+                                </div>
+                            </div>
+                        }
+                    </div>
                     <button class="add-btn" @onclick="OpenEducationPopup">+ Add education</button>
                 </div>
                 break;
@@ -371,6 +379,23 @@
         await context.SaveChangesAsync();
 
         await LoadEducationItems();
+        StateHasChanged();
+
+        newQualification = "";
+        newInstitution = "";
+        newDateRange = "";
+        newSummary = "";
+
+    }
+
+    // DELETE education Item
+    private async Task DeleteEducationItem(int id)
+    {
+
+        var success = await EducationService.DeleteEducationItemAsync(id);
+
+        await LoadEducationItems();
+        StateHasChanged();
 
     }
 
