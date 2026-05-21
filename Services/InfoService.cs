@@ -15,13 +15,7 @@ namespace ATS_Friendly_CV_Generator.Services
             _dbContextFactory = dbContextFactory;
         }
 
-        // READ : Get single item
-        public async Task<InfoItem?> GetInfoItemsByIdAsync(int Id)
-        {
-            await using var context = await _dbContextFactory.CreateDbContextAsync();
-            return await context.InfoItems.FirstOrDefaultAsync(t => t.Id == Id);
 
-        }
 
         //DELETE : delete a InfoItem
         public async Task<bool> DeleteInfoItemAsync(int id)

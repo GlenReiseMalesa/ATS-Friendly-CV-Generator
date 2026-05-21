@@ -1,15 +1,15 @@
 {
   "mainAssemblyName": "ATS Friendly CV Generator",
   "resources": {
-    "hash": "sha256-lRrbQz74vJ+BopuAtMZt1k8fHFnX+L8bKZejfh0e4ac=",
+    "hash": "sha256-n68Gw4IBKPZEdubHO0ghC3Uh1YahyDZwRpE18p+vnyY=",
     "jsModuleNative": {
-      "dotnet.native.js": "sha256-SfPzDujTcFI9X+nNs36y0nhB2P7hVahg9Jpe+jZmyaY="
+      "dotnet.native.js": "sha256-AFbLHXUenGUVev7C9JjheaL1OnFciXyh1SQiMJA+jRM="
     },
     "jsModuleRuntime": {
       "dotnet.runtime.js": "sha256-HuKpYzsYoQBMbqMPjy15HX+ShsypvOKN9uGvoA7P/+o="
     },
     "wasmNative": {
-      "dotnet.native.wasm": "sha256-occBkAw3wNJkpdps1YiG7TQLHOWUw8q7q50yZKs1DpY="
+      "dotnet.native.wasm": "sha256-0156kkDEKaLxtdLAZaZLHbit/2RcAj90cyxm+VJc56E="
     },
     "icu": {
       "icudt_CJK.dat": "sha256-SZLtQnRc0JkwqHab0VUVP7T3uBPSeYzxzDnpxPpUnHk=",
@@ -221,10 +221,10 @@
       "mscorlib.wasm": "sha256-UzRTTeY8BezBltrUF59UgvVNxbmnZS3LeowarsPY8+Y=",
       "netstandard.wasm": "sha256-xHQSNwqHm8E9DM86qW7CTJoRXXsQuGmPeNipDwQFNr8=",
       "System.Private.CoreLib.wasm": "sha256-N9/Djwpe2mX4HdyhCGu9jrxG/DSYKoTPbtsIOv6VFDk=",
-      "ATS Friendly CV Generator.wasm": "sha256-euxR/uXgd+dgvc3NvtNPfhapAtZiUGIMCm+36A1aldI="
+      "ATS Friendly CV Generator.wasm": "sha256-Zk97uQUpwIYZUjrynRUyw36V2RhU2OacAJBk7aHUtmg="
     },
     "pdb": {
-      "ATS Friendly CV Generator.pdb": "sha256-HoSFOXuK4205AvCnat12Ul6RuTnBK3gXVQ4WUzpjB2w="
+      "ATS Friendly CV Generator.pdb": "sha256-Bt1wScfj7MjAgMI9oLGssEhZln5br/d1ewTKF3C8h60="
     }
   },
   "cacheBootResources": true,
