@@ -65,21 +65,22 @@
 
         @if (showPopup == true)
         {
+         
             <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); display: flex; justify-content: center; align-items: center; z-index: 1000;">
                 <div style="background: white; padding: 30px; border-radius: 12px; min-width: 300px;">
                     <h4>Add Experience</h4>
                     <label>JOB TITLE</label>
-                    <input type="text" style="width: 100%; padding: 8px; margin: 10px 0;" />
+                <input type = "text" @bind="newJobTitle" style = "width: 100%; padding: 8px; margin: 10px 0;" />
                     <label>COMPANY</label>
-                    <input type="text" @bind="inputValue" style="width: 100%; padding: 8px; margin: 10px 0;" />
+                <input type = "text"  @bind = "newCompany" style = "width: 100%; padding: 8px; margin: 10px 0;" />
                     <label>DATE RANGE</label>
-                    <input type="text" style="width: 100%; padding: 8px; margin: 10px 0;" />
+                <input type = "text"  @bind = "newDateRange" style = "width: 100%; padding: 8px; margin: 10px 0;" />
                     <label>DESCRIPTION</label>
-                    <textarea type="text" style="width: 100%; padding: 8px; margin: 10px 0;" />
+                <textarea type = "text"  @bind = "newDescription" style = "width: 100%; padding: 8px; margin: 10px 0;" />
                     <div style="display: flex; gap: 10px; margin-top: 15px;">
 
                         <button @onclick="CloseExperiencePopup" style="padding: 6px 12px;">Cancel</button>
-                        <button @onclick="CloseExperiencePopup" style="padding: 6px 12px;">Submit</button>
+                        <button @onclick="AddExperience" style="padding: 6px 12px;">Submit</button>
 
                     </div>
                 </div>
@@ -139,7 +140,6 @@
                         </div>
                     </div>
 
-                    Console.WriteLine("Count : " + InfoItems.Count);
                 }
                 else
                 {
@@ -186,7 +186,20 @@
             case 2:
                 <!-- EXPERIENCE -->
                 <div id="tab-experience" class="section-panel active">
-                    <div id="exp-list"></div>
+                    <div id="exp-list">
+                        @foreach(ExperienceItem experienceItem in ExperienceItems)
+                        {
+                             
+
+                            <div class="card" style="width: 18rem;margin-bottom : 10px;">
+                                <div class="card-body">
+                                    <h5 class="card-title">@experienceItem.JobTitle<button class="btn btn-danger" @onclick="() => DeleteExperienceItem(experienceItem.Id)" style="padding: 6px 16px;float:right;">X</button></h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">@experienceItem.Company | @experienceItem.DateRange</h6>
+                                    <p class="card-text">@experienceItem.Description</p>                                   
+                                </div>
+                            </div>
+                        }
+                    </div>
                     <button class="add-btn" @onclick="OpenExperiencePopup">+ Add experience</button>
                 </div>
                 break;
@@ -291,23 +304,23 @@
 
     private void OpenExperiencePopup()
     {
-        inputValue = "";
+
         showPopup = true;
     }
     private void CloseExperiencePopup()
     {
-        inputValue = "";
+
         showPopup = false;
     }
 
     private void OpenEducationPopup()
     {
-        inputValue = "";
+
         showEducationPopup = true;
     }
     private void CloseEducationPopup()
     {
-        inputValue = "";
+
         showEducationPopup = false;
     }
 
@@ -395,6 +408,24 @@
         await context.SaveChangesAsync();
 
         await LoadExperienceItems();
+        StateHasChanged();
+
+        newJobTitle = "";
+        newCompany = "";
+        newDateRange = "";
+        newDescription = "";
+
+
+    }
+
+    // DELETE Experience Item
+    private async Task DeleteExperienceItem(int id)
+    {
+
+        var success = await ExperienceService.DeleteExperienceItemAsync(id);
+
+        await LoadExperienceItems();
+        StateHasChanged();
 
     }
 
